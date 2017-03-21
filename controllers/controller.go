@@ -1,15 +1,19 @@
 package controllers
 
+import "net/http"
+
+
 type ControllerInterface interface {
-	Prepare()
+	Init(http.ResponseWriter,*http.Request)
 }
 
 
 type Controller struct {
-	controllerName string
-	actionName     string
+	Request *http.Request
+	Response http.ResponseWriter
 }
 
-func (c *Controller) Prepare() {
-
+func (c *Controller) Init(w http.ResponseWriter,r *http.Request) {
+	c.Request = r
+	c.Response = w
 }
