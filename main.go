@@ -1,8 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main()  {
+
+	http.ListenAndServe(":8888", nil)
+
 	fmt.Println("Client ")
 }
 

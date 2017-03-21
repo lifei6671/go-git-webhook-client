@@ -1,0 +1,4 @@
+package: go-git-webhook-client
+import:
+- package: github.com/gorilla/mux
+  version: ^1.3.0
