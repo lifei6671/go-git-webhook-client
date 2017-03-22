@@ -10,6 +10,7 @@ import (
 
 func main()  {
 
+
 	routers.MapRoute("default","/",&controllers.PayloadController{},routers.Parameter{},"GET")
 
 	routers.RegisterRoutes()

@@ -21,7 +21,15 @@ func RegisterRoutes()  {
 
 
 func MapRoute(name string,path string,c controllers.ControllerInterface,params Parameter,methods... string){
+
 	route.HandleFunc(path, func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println(r.URL)
+		defer func() {
+			//if r := recover();r != nil{
+			//	fmt.Errorf("%v",r)
+			//}
+		}()
+
 		controller := reflect.ValueOf(c)
 
 		method := controller.MethodByName("Init")
@@ -34,7 +42,16 @@ func MapRoute(name string,path string,c controllers.ControllerInterface,params P
 			actionMethod := controller.MethodByName("IndexAction")
 
 			if actionMethod.IsValid() {
-				actionMethod.Call([]reflect.Value{})
+				result := actionMethod.Call([]reflect.Value{})
+
+				if len(result) >  0 {
+					resultMethod := result[0].MethodByName("ExecuteResult")
+
+					if resultMethod.IsValid() {
+						resultMethod.Call([]reflect.Value{responseValue, requestValue})
+					}
+				}
+
 			}
 
 		}else{
