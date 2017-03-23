@@ -1,13 +1,14 @@
 package controllers
 
-type PayloadController struct {
-	Controller
-}
+import (
+	"net/http"
+	"fmt"
+	"github.com/gorilla/mux"
+)
 
-func (c *PayloadController) IndexAction() ActionResult {
+func Payload(w http.ResponseWriter, r *http.Request)  {
+	params := mux.Vars(r)
 
-	c.Response.WriteString("aaa")
 
-
-	return NewJsonResult(map[string]string{"Key":"aaaa"})
+	fmt.Fprint(w,params)
 }

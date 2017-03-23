@@ -1,5 +1,5 @@
-hash: 2ce65768ff7465198f8237db0c75b83264ac69c10fcdc072c9c185809729bdce
-updated: 2017-03-21T17:26:54.8808545+08:00
+hash: 15153fa0d117398f9fdeb687ba3d746630f310ac9a78ae941f02863da2a67f3b
+updated: 2017-03-23T15:30:23.4414663+08:00
 imports:
 - name: github.com/go-ini/ini
   version: 1730955e3146956d6a087861380f9b4667ed5071
@@ -7,4 +7,6 @@ imports:
   version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
 - name: github.com/gorilla/mux
   version: 392c28fe23e1c45ddba891b0320b3b5df220beea
+- name: github.com/gorilla/websocket
+  version: 3ab3a8b8831546bd18fd182c20687ca853b2bb13
 testImports: []
