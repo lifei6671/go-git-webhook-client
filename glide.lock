@@ -1,6 +1,8 @@
-hash: 15153fa0d117398f9fdeb687ba3d746630f310ac9a78ae941f02863da2a67f3b
-updated: 2017-03-23T15:30:23.4414663+08:00
+hash: 88ba04a73124130a9fe54cc8ac83388c184b079932d32d811dbe6504a71cbecc
+updated: 2017-03-24T13:35:26.1144946+08:00
 imports:
+- name: github.com/axgle/mahonia
+  version: c528b747d92d41ca581a7acf3e604c396fc7c034
 - name: github.com/go-ini/ini
   version: 1730955e3146956d6a087861380f9b4667ed5071
 - name: github.com/gorilla/context
@@ -9,4 +11,6 @@ imports:
   version: 392c28fe23e1c45ddba891b0320b3b5df220beea
 - name: github.com/gorilla/websocket
   version: 3ab3a8b8831546bd18fd182c20687ca853b2bb13
+- name: github.com/widuu/gojson
+  version: 7da9d2cd949b3f1b4e3039dd985773df8cf68a99
 testImports: []
