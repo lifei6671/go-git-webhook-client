@@ -40,6 +40,7 @@ func WebSocketServer(w http.ResponseWriter, r *http.Request) {
 		if isWebSocketClosed {
 			return
 		}
+
 		var body models.JsonResult
 
 		err := c.ReadJSON(&body)
@@ -51,7 +52,7 @@ func WebSocketServer(w http.ResponseWriter, r *http.Request) {
 			}
 			err = c.WriteJSON(res)
 			if err != nil {
-				log.Println("write:", err.Error())
+				log.Println("write error 4001:", err.Error())
 			}
 
 			continue

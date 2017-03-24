@@ -66,7 +66,7 @@ func Command(shell string,outchan chan<- []byte) {
 		outchan <- out
 		return
 	}
- 
+
 
 	return
 }
