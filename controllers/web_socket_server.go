@@ -16,6 +16,11 @@ var upgrader = websocket.Upgrader{CheckOrigin : verification} // use default opt
 
 func WebSocketServer(w http.ResponseWriter, r *http.Request) {
 
+	defer func() {
+		if err := recover();err != nil {
+			log.Printf("%+v",err)
+		}
+	}()
 	isWebSocketClosed := false
 
 	c, err := upgrader.Upgrade(w, r, nil)

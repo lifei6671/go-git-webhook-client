@@ -12,6 +12,8 @@ import (
 	"go-git-webhook-client/commands"
 )
 
+var logger = log.New(os.Stderr, "", log.LstdFlags)
+
 func Payload(w http.ResponseWriter, r *http.Request)  {
 	params := mux.Vars(r)
 	var err error
@@ -67,7 +69,6 @@ func Payload(w http.ResponseWriter, r *http.Request)  {
 			}
 
 			var logger *log.Logger
-
 			if _, err := os.Stat(log_path); os.IsNotExist(err) {
 				log_file,err := os.Create(log_path)
 				if err != nil {
