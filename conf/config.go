@@ -8,7 +8,7 @@ func GetString(name string,defval string) string {
 	if err != nil {
 		return defval
 	}
-	section,err := cfg.GetSection("");
+	section,err := cfg.GetSection("system");
 
 	if err != nil {
 		return defval

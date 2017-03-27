@@ -70,3 +70,7 @@ func Command(shell string,outchan chan<- []byte) {
 
 	return
 }
+
+func ResolveShellFilePath(p string) string {
+	return p
+}

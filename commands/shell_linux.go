@@ -8,6 +8,7 @@ import (
 	"github.com/axgle/mahonia"
 	"io"
 	"io/ioutil"
+	"strings"
 )
 
 func Command(shell string,outchan chan<- []byte) {
@@ -70,3 +71,17 @@ func Command(shell string,outchan chan<- []byte) {
 
 	return
 }
+
+
+func ResolveShellFilePath(p string) string {
+	if strings.Count(p,"") -1 <= 2 {
+		return p
+	}
+	if p[0:2] != "./" {
+		command := "./" + p
+		return command
+	}
+	return p
+}
+
+

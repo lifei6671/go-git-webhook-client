@@ -5,9 +5,9 @@ import (
 	"log"
 	"github.com/gorilla/websocket"
 	"go-git-webhook-client/cache"
-	"fmt"
 	"go-git-webhook-client/models"
 	"go-git-webhook-client/commands"
+	"fmt"
 )
 
 
@@ -45,14 +45,18 @@ func WebSocketServer(w http.ResponseWriter, r *http.Request) {
 
 		err := c.ReadJSON(&body)
 		if err != nil {
-			log.Println("read:", err)
+			if websocket.IsCloseError(err,1005) {
+				log.Printf("WebSocket client closed:%s",err)
+				break
+			}
+
 			res := models.JsonResult{
 				ErrorCode: 5002,
 				Message: "Parameter format error.",
 			}
 			err = c.WriteJSON(res)
 			if err != nil {
-				log.Println("write error 4001:", err.Error())
+				log.Printf("write error 4001:%s", err)
 			}
 
 			continue
@@ -87,7 +91,7 @@ func WebSocketServer(w http.ResponseWriter, r *http.Request) {
 				case out, ok := <-channel:
 					{
 						if !ok {
-							fmt.Println("chan closed")
+							log.Println("chan closed")
 							isChannelClosed = true
 							break
 						}
