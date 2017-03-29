@@ -1,6 +1,7 @@
 # go-git-webhook-client
 
 [![Build Status](https://travis-ci.org/lifei6671/go-git-webhook-client.svg?branch=master)](https://travis-ci.org/lifei6671/go-git-webhook-client)
+[![Build status](https://ci.appveyor.com/api/projects/status/m618nm2i9tf0lw10/branch/master?svg=true)](https://ci.appveyor.com/project/lifei6671/go-git-webhook-client/branch/master)
 
 
 该客户端不但可以配置[SmartWebHook](https://github.com/lifei6671/go-git-webhook) 使用，还可以作为单机版的 WebHook 客户端使用。
