@@ -3,7 +3,7 @@ package routers
 import (
 	"github.com/gorilla/mux"
 	"net/http"
-	"go-git-webhook-client/controllers"
+	"github.com/lifei6671/go-git-webhook-client/controllers"
 )
 
 var(

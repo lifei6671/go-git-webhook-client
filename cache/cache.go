@@ -2,7 +2,7 @@ package cache
 
 import (
 	"sync"
-	"go-git-webhook-client/models"
+	"github.com/lifei6671/go-git-webhook-client/models"
 	"errors"
 )
 

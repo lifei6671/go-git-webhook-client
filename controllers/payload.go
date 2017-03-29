@@ -7,9 +7,9 @@ import (
 	"github.com/go-ini/ini"
 	"log"
 	"io/ioutil"
-	"go-git-webhook-client/models"
+	"github.com/lifei6671/go-git-webhook-client/models"
 	"os"
-	"go-git-webhook-client/commands"
+	"github.com/lifei6671/go-git-webhook-client/commands"
 )
 
 var logger = log.New(os.Stderr, "", log.LstdFlags)

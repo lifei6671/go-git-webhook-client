@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"log"
 	"github.com/gorilla/websocket"
-	"go-git-webhook-client/cache"
-	"go-git-webhook-client/models"
-	"go-git-webhook-client/commands"
+	"github.com/lifei6671/go-git-webhook-client/cache"
+	"github.com/lifei6671/go-git-webhook-client/models"
+	"github.com/lifei6671/go-git-webhook-client/commands"
 	"fmt"
 )
 

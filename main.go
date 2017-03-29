@@ -2,9 +2,9 @@ package main
 
 import (
 	"net/http"
-	"go-git-webhook-client/conf"
+	"github.com/lifei6671/go-git-webhook-client/conf"
 	"log"
-	"go-git-webhook-client/routers"
+	"github.com/lifei6671/go-git-webhook-client/routers"
 	"fmt"
 )
 
