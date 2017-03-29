@@ -56,6 +56,27 @@ chmod 0777 go-git-webhook-client
 
 ```
 
+**使用 supervisor 管理程序**
+
+```ini
+
+[program:go-git-webhook-client]
+command=/opt/go/src/github.com/lifei6671/go-git-webhook-client/go-git-webhook-client
+autostart=true
+autorestart=true
+startsecs=10
+stdout_logfile=/var/log/go-git-webhook-client/access.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=10
+stdout_capture_maxbytes=1MB
+stderr_logfile=/var/log/go-git-webhook-client/error.log
+stderr_logfile_maxbytes=1MB
+stderr_logfile_backups=10
+stderr_capture_maxbytes=1MB
+```
+
+请将配置中的 `command` 配置为你服务器的实际程序地址
+
 # 反馈
 
 如果使用中出现问题,请在 [issues](https://github.com/lifei6671/go-git-webhook-client/issues) 中反馈。
