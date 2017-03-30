@@ -140,7 +140,6 @@ func WebSocketServer(w http.ResponseWriter, r *http.Request) {
 //校验是否是授权客户端
 func verification(r *http.Request) bool {
 
-	return  true
 	token := r.Header.Get("x-smarthook-token")
 
 	return cache.TokenCache.Contains(token);
