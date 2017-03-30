@@ -31,6 +31,10 @@ command = E:/backshop.bat
 log_path = E:/smartwiki.log
 ```
 
+作为单机版使用时 WebHook 的回调地址为 http://host:port/payload/唯一标识 。
+
+例如，你在 conf/app.conf 中配置了一个节点为 `e59ef60482fd71b0e6bf60da8a8a40a5`,则回调地址为 ：http://host:port/payload/e59ef60482fd71b0e6bf60da8a8a40a5 。
+
 # 编译
 
 **拉去源码**
