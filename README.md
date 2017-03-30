@@ -75,7 +75,47 @@ stderr_logfile_backups=10
 stderr_capture_maxbytes=1MB
 ```
 
-请将配置中的 `command` 配置为你服务器的实际程序地址
+请将配置中的 `command` 配置为你服务器的实际程序地址。
+
+# 使用 Nginx
+
+如果使用nginx 作为前端代理，配置文件如下：
+
+```smartyconfig
+server {
+    listen       80;
+    server_name  hookclient.iminho.me;
+
+    charset utf-8;
+    access_log  /var/log/nginx/webhookclient.iminho.me/access.log;
+
+    root "/var/www/go-git-webhook";
+
+    location ~ .*\.(ttf|woff2|eot|otf|map|swf|svg|gif|jpg|jpeg|bmp|png|ico|txt|js|css)$ {
+        root "/var/go/src/go-git-webhook";
+        expires 30m;
+    }
+    
+    # 开启 WebSocket 支持
+    location /socket {
+       proxy_pass http://127.0.0.1:8081/socket;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+   }
+    location / {
+        try_files /_not_exists_ @backend;
+    }
+
+    location @backend {
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host            $http_host;
+
+        proxy_pass http://127.0.0.1:8081;
+    }
+}
+
+```
 
 # 反馈
 
