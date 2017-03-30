@@ -22,19 +22,19 @@ func Command(shell string,outchan chan<- []byte) {
 
 	if err != nil {
 		fmt.Println("StdoutPipe: " + err.Error())
-		outchan <- []byte("StdoutPipe: " + err.Error())
+		outchan <- []byte("Error: StdoutPipe error => " + err.Error())
 		return
 	}
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
 		fmt.Println("StderrPipe: ", err.Error())
-		outchan <- []byte("StderrPipe: " + err.Error())
+		outchan <- []byte("Error: StderrPipe error => " + err.Error())
 		return
 	}
 
 	if err := cmd.Start(); err != nil {
-		fmt.Println("Start: ", err.Error())
-		outchan <- []byte("Start: " + err.Error())
+		fmt.Println("Error: Start => ", err.Error())
+		outchan <- []byte("Error: cmd.Start error => " + err.Error())
 		return
 	}
 
@@ -59,12 +59,12 @@ func Command(shell string,outchan chan<- []byte) {
 		out := []byte(enc.ConvertString(string(bytesErr)))
 		outchan <- out
 	}else{
-		outchan <- []byte("Stderr: " + err.Error())
+		outchan <- []byte("Error: Stderr => " + err.Error())
 	}
 	if err := cmd.Wait(); err != nil {
 
-		fmt.Println("Wait: ", err.Error())
-		out := []byte("Wait: " +err.Error())
+		fmt.Println("Error: ", err.Error())
+		out := []byte("Error: " +err.Error())
 		outchan <- out
 		return
 	}
