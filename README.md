@@ -4,7 +4,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/m618nm2i9tf0lw10/branch/master?svg=true)](https://ci.appveyor.com/project/lifei6671/go-git-webhook-client/branch/master)
 
 
-该客户端不但可以配置[SmartWebHook](https://github.com/lifei6671/go-git-webhook) 使用，还可以作为单机版的 WebHook 客户端使用。
+该客户端不但可以配合 [SmartWebHook](https://github.com/lifei6671/go-git-webhook) 使用，还可以作为单机版的 WebHook 客户端使用。
 
 # 配置文件
 
@@ -19,7 +19,7 @@ httpport = 8081
 account = root
 password = 123456
 
-#单击版 WebHook 节点，该节点为自定义用于识别不同项目的标识
+#单机版 WebHook 节点，该节点为自定义用于识别不同项目的标识
 [e59ef60482fd71b0e6bf60da8a8a40a5]
 #项目名称
 repo_name = backshop
