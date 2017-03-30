@@ -5,7 +5,6 @@ import (
 	"syscall"
 	"fmt"
 	"bufio"
-	"github.com/axgle/mahonia"
 	"io"
 	"io/ioutil"
 	"strings"
@@ -39,7 +38,6 @@ func Command(shell string,outchan chan<- []byte) {
 	}
 
 	reader := bufio.NewReader(stdout)
-	enc := mahonia.NewDecoder("gbk")
 
 	//实时循环读取输出流中的一行内容
 	for {
@@ -49,15 +47,14 @@ func Command(shell string,outchan chan<- []byte) {
 			break
 		}
 
-		b := []byte(enc.ConvertString(line))
+		b := []byte(line)
 		outchan <- b
 	}
 
 	bytesErr, err := ioutil.ReadAll(stderr)
 
 	if err == nil {
-		out := []byte(enc.ConvertString(string(bytesErr)))
-		outchan <- out
+		outchan <- bytesErr
 	}else{
 		outchan <- []byte("Error: Stderr => " + err.Error())
 	}
