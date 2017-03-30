@@ -13,7 +13,7 @@ import (
 func Command(shell string,outchan chan<- []byte) {
 	defer close(outchan)
 
-	cmd := exec.Command("/bin/sh", "-c", shell)
+	cmd := exec.Command("/bin/bash", "-c", shell)
 
 	cmd.SysProcAttr = &syscall.SysProcAttr{ Setpgid : true}
 
