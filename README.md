@@ -37,7 +37,7 @@ log_path = E:/smartwiki.log
 
 # 编译
 
-**拉去源码**
+**拉取源码**
 
 ```bash
 git clone https://github.com/lifei6671/go-git-webhook-client.git
@@ -57,14 +57,16 @@ go build -v -tags "pam" -ldflags "-w"
 
 ```bash
 chmod 0777 go-git-webhook-client
+nohup ./go-git-webhook-client &
 
 ```
 
 **使用 supervisor 管理程序**
 
 ```ini
-
 [program:go-git-webhook-client]
+#设置为你的程序工作目录，否则会找到配置文件
+directory=/opt/go/src/github.com/lifei6671/go-git-webhook-client/
 command=/opt/go/src/github.com/lifei6671/go-git-webhook-client/go-git-webhook-client
 autostart=true
 autorestart=true
